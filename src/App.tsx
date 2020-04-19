@@ -28,6 +28,7 @@ function drawCatHead(ctx: CanvasRenderingContext2D) {
   ctx.save();
 
   // transformations here
+  ctx.scale(1.5, 1.5)
   ctx.translate(200, 100);
   ctx.save()
 
@@ -117,7 +118,7 @@ function Cat() {
     drawCatHead(context!)
   })
   return (
-    <canvas ref={ref} width={1000} height={1000}>
+    <canvas ref={ref} width={500} height={500}>
 
     </canvas>
   )
