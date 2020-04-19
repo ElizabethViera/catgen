@@ -1,5 +1,4 @@
-import React, { Component, useRef, useLayoutEffect } from 'react';
-import './App.css';
+import * as React from 'react';
 
 function pt(x: number, y: number) {
   return [x, y] as const
@@ -113,8 +112,8 @@ function drawCatHead(ctx: CanvasRenderingContext2D) {
 }
 
 function Cat() {
-  const ref = useRef<HTMLCanvasElement>(null as any)
-  useLayoutEffect(() => {
+  const ref = React.useRef<HTMLCanvasElement>(null as any)
+  React.useLayoutEffect(() => {
     const context = ref.current.getContext('2d')
     drawCatHead(context!)
   })

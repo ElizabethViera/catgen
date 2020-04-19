@@ -16,8 +16,10 @@
 		"typescript": "^3.7.5"
 	},
 	"scripts": {
-		"start": "node src/server.js",
-		"postinstall": "tsc"
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
