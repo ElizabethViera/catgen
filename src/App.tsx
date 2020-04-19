@@ -118,7 +118,7 @@ function Cat() {
     drawCatHead(context!)
   })
   return (
-    <canvas ref={ref} width={3000} height={1000}>
+    <canvas ref={ref} width={1000} height={500}>
 
     </canvas>
   )
