@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { names } from './wordList/wordList';
+
+const colorChoices = ["#FF96EF", "#D789E8", "#D254FF", "#D7A3FF", "#A689E8", "#D6D4FC", "#9BEFFA", "#E889B2"]
 
 function pt(x: number, y: number) {
   return [x, y] as const
@@ -16,7 +19,6 @@ function choose<T>(list: T[]) {
 
 
 function drawCatHead(ctx: CanvasRenderingContext2D) {
-  const colorChoices = ["#FF96EF", "#D789E8", "#D254FF", "#D7A3FF", "#A689E8", "#D6D4FC", "#9BEFFA", "#E889B2"]
   const headColor = choose(colorChoices)
   const bodyColor = choose(colorChoices)
   ctx.fillStyle = '#FFFFFF'
@@ -113,14 +115,18 @@ function drawCatHead(ctx: CanvasRenderingContext2D) {
 
 function Cat() {
   const ref = React.useRef<HTMLCanvasElement>(null as any)
+  const [catName] = React.useState(choose(names))
+  const [catNameColor] = React.useState(choose(colorChoices))
   React.useLayoutEffect(() => {
     const context = ref.current.getContext('2d')
     drawCatHead(context!)
   })
   return (
-    <canvas ref={ref} width={500} height={500}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <h2 style={{ color: catNameColor, textAlign: "center", marginBottom: -30 }}>{catName}</h2>
+      <canvas ref={ref} width={500} height={500} />
 
-    </canvas>
+    </div >
   )
 }
 function App() {
